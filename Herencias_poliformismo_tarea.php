@@ -20,7 +20,7 @@ abstract class Departamentos{
 
     }
     final public static function getNacionalidad(){
-        echo "TODAS LAS PERSONAS SON DE ORIGEN:" . self::$nacionalidad;
+        self::$nacionalidad;
     }
     private function getInfor() : void {
         $this->informacion;
