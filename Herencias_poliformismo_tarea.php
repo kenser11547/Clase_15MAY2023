@@ -10,10 +10,18 @@ abstract class Departamentos{
     protected $municipios;
     public $habitantes;
     public static $nacionalidad = "guatemaltecos";
+    private $informacion;
 
     public function __construct($municipios, $habitantes){
         $this->municipios = $municipios;
         $this->habitantes = $habitantes;
+    }
+    private function metodoPrivado () : void {
+        $this->informacion = "confidencial";
+    }
+    public function accederPrivado() : void {
+        echo $this->informacion;
+        $this->metodoPrivado();
     }
 
     final public static function getNacionalidad(){
@@ -21,7 +29,7 @@ abstract class Departamentos{
     }
 
     public function getInfo() : void{
-        echo "El departamento tiene:  $this->municipios municipios, y tiene un aproximado de: $this->habitantes habitantes";
+        echo "El departamento tiene:  $this->municipios municipios, y tiene un aproximado de: $this->habitantes habitantes y su informacion es". $this->informacion. ".";
     }
 
     public function getMunicipios(): void{
@@ -32,14 +40,14 @@ abstract class Departamentos{
 class AltaVerapaz extends Departamentos{
     public $idiomas;
 
-    public function __construct($idiomas = 0, $municipios = 0, $habitantes = 0)
+    public function __construct($idiomas = 0, $municipios = 0, $habitantes = 0 , $informacion = 'confidencial')
     {
         $this->idiomas = $idiomas;
         parent::__construct($municipios, $habitantes);
     }
 
     public function getInfo() : void{
-        echo "El departamento de Alta Verapaz tiene: $this->municipios municipios, con un aproximado de: $this->habitantes habitantes y $this->idiomas idiomas, y son : " . parent::$nacionalidad;
+        echo "El departamento de Alta Verapaz tiene: $this->municipios municipios, con un aproximado de: $this->habitantes habitantes y $this->idiomas idiomas, y son : " . self::$nacionalidad;
     }
 }
 
@@ -51,7 +59,7 @@ class Guatemala extends Departamentos{
 
 #$departamento = new Departamento(22,10000000);
 
-$AltaVerapazCity = new AltaVerapaz(4,16,150000);
+$AltaVerapazCity = new AltaVerapaz(4,16,150000, 'privado');
 // $carroToyota->ruedas = 6;
 $AltaVerapazCity->getInfo();
 echo "<br>";
