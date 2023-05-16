@@ -59,7 +59,7 @@ class Guatemala extends Departamentos{
 
 #$departamento = new Departamento(22,10000000);
 
-$AltaVerapazCity = new AltaVerapaz(4,16,150000, 'privado');
+$AltaVerapazCity = new AltaVerapaz(4,16,150000,);
 // $carroToyota->ruedas = 6;
 $AltaVerapazCity->getInfo();
 echo "<br>";
