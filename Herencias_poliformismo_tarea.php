@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 // ABSTRACT -
 // STATIC -
 
+#asignacion de la clase padre
 abstract class Departamentos{
     protected $municipios;
     public $habitantes;
@@ -36,7 +37,7 @@ abstract class Departamentos{
         echo "El departamento tiene: $this->municipios municipios";
     }
 }
-
+#asignar los hijos/clases
 class AltaVerapaz extends Departamentos{
     public $idiomas;
 
@@ -57,10 +58,8 @@ class Guatemala extends Departamentos{
     }
 }
 
-#$departamento = new Departamento(22,10000000);
-
 $AltaVerapazCity = new AltaVerapaz(4,16,150000,);
-// $carroToyota->ruedas = 6;
+//impresion de las clases.
 $AltaVerapazCity->getInfo();
 echo "<br>";
 $GuatemalaCity = new Guatemala(10,1000000);
